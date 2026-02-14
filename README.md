@@ -6,6 +6,20 @@
 
 GitHub-AI-Translator-CN 是一款 Chrome 扩展程序，使用 AI 模型自动将 GitHub 项目的 README 等文档翻译成简体中文。
 
+## 插件使用视频
+
+> 建议将录制好的视频文件放在 `docs/demo.mp4`，然后在下方直接播放。
+
+<video src="./docs/demo.mp4" controls width="960"></video>
+
+如果仓库不希望存放大文件，可改为外链：
+
+```markdown
+[点击观看插件使用演示](https://your-video-link)
+```
+
+---
+
 ## 目录
 
 - [项目简介](#项目简介)
@@ -121,19 +135,7 @@ GitHub-AI-Translator-CN 是一款 Chrome 扩展程序，使用 AI 模型自动�
 5. 点击「开始 AI 翻译」按钮
 6. 翻译控制台将出现在页面右侧，显示翻译进度
 
-### 插件使用视频
 
-> 建议将录制好的视频文件放在 `docs/demo.mp4`，然后在下方直接播放。
-
-<video src="./docs/demo.mp4" controls width="960"></video>
-
-如果仓库不希望存放大文件，可改为外链：
-
-```markdown
-[点击观看插件使用演示](https://your-video-link)
-```
-
----
 
 ## 配置说明
 
