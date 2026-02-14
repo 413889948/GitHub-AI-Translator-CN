@@ -8,9 +8,7 @@ GitHub-AI-Translator-CN 是一款 Chrome 扩展程序，使用 AI 模型自动�
 
 ## 插件使用视频
 
-[![插件使用演示（点击播放）](./docs/video-preview.svg)](./docs/演示视频.mp4)
-
-[点击观看插件使用演示视频](./docs/演示视频.mp4)
+![插件使用演示](./docs/演示视频.gif)
 
 ## 目录
 
