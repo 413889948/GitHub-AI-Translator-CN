@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Docs Translator",
+  "version": "1.0",
+  "description": "Auto-translates GitHub project documentation to Chinese with AI.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.minimax.chat/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GitHub Translator"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
