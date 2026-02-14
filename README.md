@@ -8,17 +8,7 @@ GitHub-AI-Translator-CN 是一款 Chrome 扩展程序，使用 AI 模型自动�
 
 ## 插件使用视频
 
-> 建议将录制好的视频文件放在 `docs/demo.mp4`，然后在下方直接播放。
-
-<video src="./docs/demo.mp4" controls width="960"></video>
-
-如果仓库不希望存放大文件，可改为外链：
-
-```markdown
-[点击观看插件使用演示](https://your-video-link)
-```
-
----
+<video controls src="docs/演示视频.mp4" title="Title"></video>
 
 ## 目录
 
