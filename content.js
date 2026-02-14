@@ -43,6 +43,7 @@ let processedElements = [];
 
 // UI State
 let consoleElement = null;
+let minimizedElement = null; // New: Minimized Handle
 let logContainer = null;
 let btnPause = null;
 let btnToggle = null;
@@ -59,12 +60,49 @@ function escapeHtml(unsafe) {
          .replace(/'/g, "&#039;");
 }
 
+// --- UI: Minimized Handle ---
+function createMinimizedHandle() {
+    if (minimizedElement) return;
+
+    minimizedElement = document.createElement('div');
+    minimizedElement.id = 'gh-translator-minimized';
+    minimizedElement.innerText = "AI 译";
+    minimizedElement.title = "点击恢复翻译控制台";
+    minimizedElement.style.cssText = `
+        position: fixed; top: 100px; right: 0; width: 40px; height: 40px;
+        background: #2da44e; color: white; border-top-left-radius: 6px; border-bottom-left-radius: 6px;
+        box-shadow: -2px 2px 5px rgba(0,0,0,0.2); z-index: 2147483647;
+        display: none; align-items: center; justify-content: center;
+        font-weight: bold; cursor: pointer; font-size: 12px; user-select: none;
+        transition: width 0.2s;
+    `;
+    
+    minimizedElement.addEventListener('mouseenter', () => {
+        minimizedElement.style.width = "60px";
+        minimizedElement.innerText = "恢复";
+    });
+    minimizedElement.addEventListener('mouseleave', () => {
+        minimizedElement.style.width = "40px";
+        minimizedElement.innerText = "AI 译";
+    });
+
+    minimizedElement.addEventListener('click', () => {
+        minimizedElement.style.display = 'none';
+        if (consoleElement) consoleElement.style.display = 'flex';
+    });
+
+    document.body.appendChild(minimizedElement);
+}
+
 // --- UI: Floating Console ---
 function createConsole() {
     if (consoleElement) {
         consoleElement.style.display = 'flex'; // Ensure visible
+        if (minimizedElement) minimizedElement.style.display = 'none'; // Hide minimized if showing full
         return;
     }
+
+    createMinimizedHandle(); // Ensure handle exists
 
     consoleElement = document.createElement('div');
     consoleElement.id = 'gh-translator-console';
@@ -120,7 +158,7 @@ function createConsole() {
 
     document.getElementById('gh-console-close').addEventListener('click', () => {
         consoleElement.style.display = 'none';
-        isPaused = true; 
+        if (minimizedElement) minimizedElement.style.display = 'flex'; 
     });
 }
 

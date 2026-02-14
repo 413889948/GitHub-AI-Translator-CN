@@ -42,11 +42,14 @@ async function handleGoogleTranslateRequest(request, sendResponse) {
         return;
     }
 
-    // Google Translate API (Unofficial via POST to avoid URL length limits)
-    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t";
+    // Google Translate API
+    // Moving sl and tl to body to ensure they are respected in POST request
+    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t";
     
     try {
         const formData = new URLSearchParams();
+        formData.append('sl', 'auto');
+        formData.append('tl', 'zh-CN');
         formData.append('q', text);
         
         const response = await fetch(url, {

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Docs Translator",
+  "name": "GitHub-AI-Translator-CN",
   "version": "1.0",
   "description": "Auto-translates GitHub project documentation to Chinese with AI.",
   "permissions": [
